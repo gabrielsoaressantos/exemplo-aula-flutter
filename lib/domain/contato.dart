@@ -32,7 +32,7 @@ class Contato {
     return telefoneRegex.hasMatch(telefone);
   }
 
-  String get email => email ?? "";
+  String get email => _email ?? "";
 
   set email(String value) {
     if (!_isEmailValid(value)) {
