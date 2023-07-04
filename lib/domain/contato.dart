@@ -22,12 +22,12 @@ class Contato {
     return name.isNotEmpty;
   }
 
-  bool _isEmailValid(String email) {
+  static bool _isEmailValid(String email) {
     var emailRegex = RegExp("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}\$");
     return emailRegex.hasMatch(email);
   }
 
-  bool _isTelefoneValid(String telefone) {
+  static bool _isTelefoneValid(String telefone) {
     var telefoneRegex = RegExp("^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}\$");
     return telefoneRegex.hasMatch(telefone);
   }
