@@ -1,4 +1,4 @@
-import '../domain/contato.dart';
+import 'package:contatos/domain/contato.dart';
 
 List<Contato> _contatos = [];
 
