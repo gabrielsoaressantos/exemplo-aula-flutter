@@ -5,6 +5,7 @@ import 'package:contatos/ui/contact_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
   State<StatefulWidget> createState() => _HomeViewState();
