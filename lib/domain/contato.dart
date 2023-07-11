@@ -15,6 +15,7 @@ class Contato {
     if (email != null) {
       this.email = email;
     }
+
     this.name = name;
   }
 

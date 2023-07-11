@@ -1,5 +1,7 @@
 import 'package:contatos/domain/contato.dart';
 
+
+// TODO: Add real comunication with database
 List<Contato> _contatos = [];
 
 class ContatoDAO {

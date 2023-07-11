@@ -1,3 +1,4 @@
+import 'package:contatos/data/contato_dao.dart';
 import 'package:contatos/domain/contato.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,11 @@ class _ContactViewState extends State<ContactView> {
         telefone: telefone == "" ? null : telefone,
         email: email == "" ? null : email,
       );
+
+      var dao = ContatoDAO();
+      dao.criar(contato);
+
+      Navigator.pop(context, contato);
     } on FormatException catch (e) {
       buildMensagemDeErro(context) {
         return AlertDialog(
