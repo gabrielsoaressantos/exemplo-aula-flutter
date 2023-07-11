@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:contatos/main.dart';
 import 'package:contatos/ui/contact_view.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +38,7 @@ class _HomeViewState extends State<HomeView> {
         height: 40,
         width: 40,
         child: Text(
-          contatos[i].name[0],
+          contatos[i].name[0].toUpperCase(),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: Theme.of(context).colorScheme.onPrimaryContainer,
               ),

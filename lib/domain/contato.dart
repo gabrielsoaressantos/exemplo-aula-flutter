@@ -1,4 +1,6 @@
 
+import '../utils/validation.dart';
+
 class Contato {
   String _name = "";
   String? _telefone;
@@ -23,20 +25,10 @@ class Contato {
     return name.isNotEmpty;
   }
 
-  static bool _isEmailValid(String email) {
-    var emailRegex = RegExp(r"[\w-\.]+@([\w-]+\.)+[\w-]{2,4}");
-    return emailRegex.hasMatch(email);
-  }
-
-  static bool _isTelefoneValid(String telefone) {
-    var telefoneRegex = RegExp(r"([1-9]{2}) (?:[2-8]|9[1-9])[0-9]{3}-[0-9]{4}");
-    return telefoneRegex.hasMatch(telefone);
-  }
-
   String get email => _email ?? "";
 
   set email(String value) {
-    if (!_isEmailValid(value)) {
+    if (!isEmailValid(value)) {
       throw const FormatException("O email é inválido");
     }
     _email = value;
@@ -45,7 +37,7 @@ class Contato {
   String get telefone => _telefone ?? "";
 
   set telefone(String value) {
-    if (!_isTelefoneValid(telefone)) {
+    if (!isTelefoneValid(telefone)) {
       throw const FormatException("O telefone não é válido");
     }
     _telefone = value;

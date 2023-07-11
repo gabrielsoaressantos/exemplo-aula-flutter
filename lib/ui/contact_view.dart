@@ -1,5 +1,6 @@
 import 'package:contatos/data/contato_dao.dart';
 import 'package:contatos/domain/contato.dart';
+import 'package:contatos/utils/validation.dart';
 import 'package:flutter/material.dart';
 
 class ContactView extends StatefulWidget {
@@ -60,6 +61,13 @@ class _ContactViewState extends State<ContactView> {
     }
   }
 
+  Padding wrapWithDefaultPadding({required Widget child}) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 8, 8, 16),
+      child: child,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,12 +77,11 @@ class _ContactViewState extends State<ContactView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsets.all(16),
+            wrapWithDefaultPadding(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Nome"),
+                  const Text("Nome"),
                   TextFormField(
                     validator: (value) {
                       if (value == "") {
@@ -95,8 +102,7 @@ class _ContactViewState extends State<ContactView> {
             TextFormField(
               controller: _emailFieldController,
               validator: (value) {
-                var regex = RegExp(r"[\w-\.]+@([\w-]+\.)+[\w-]{2,4}");
-                if (!regex.hasMatch(value!)){
+                if (isEmailValid(value!)) {
                   return "O formato correto de email é user@example.com";
                 }
               },
